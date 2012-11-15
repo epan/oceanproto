@@ -40,7 +40,7 @@
 /* Heading style and gradient */
 .list li a {
 	font-weight: bold;
-	font-size: 22px;
+	font-size: 24px;
 	background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
 	color: red; /*TODO: Figure out how to change the color*/
 }
@@ -51,6 +51,8 @@
 }
 
 /* Row of profile photos */
-.row-face {
-	
+.face-row {
+	width: 320px;
+	position: absolute;
+	margin-top: 8px
 }
