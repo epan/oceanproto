@@ -1,0 +1,56 @@
+/*ul.list li a{
+	background-image: url(http://placekitten.com/400/200);
+	height: 150px;
+}*/
+
+/* Lists SIZE OVERRIDE
+-------------------------------------------------- */
+
+/* Remove usual bullet styles from list */
+.list {
+  margin-bottom: 10px;
+  list-style: none;
+  background-color: #fff;
+}
+
+/* Pad each list item and add dividers */
+.list li {
+  position: relative;
+  padding: 8px 60px 72px 10px; /* Given extra right padding to accomodate counts, chevrons or buttons */
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+/* Give top border to first list items */
+.list li:first-child {
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+/* If a list of links, make sure the child <a> takes up full list item tap area (want to avoid selecting child buttons though) */
+.list li > a:not([class*="button"]) {
+  position: relative;
+  display: block;
+  padding: inherit;
+  margin: -8px -60px -72px -10px;
+  color: inherit;
+}
+
+/* Lists STYLE OVERRIDE
+-------------------------------------------------- */
+
+/* Heading style and gradient */
+.list li a {
+	font-weight: bold;
+	font-size: 22px;
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+	color: red; /*TODO: Figure out how to change the color*/
+}
+
+/* Background image for cities */
+.list li {
+	background-image: url(http://placehold.it/320x105); /*http://placekitten.com/320/105*/
+}
+
+/* Row of profile photos */
+.row-face {
+	
+}
