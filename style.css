@@ -14,19 +14,19 @@
 }
 
 /* Pad each list item and add dividers */
-.list li {
+.cities-list li {
   position: relative;
   padding: 7px 60px 72px 10px; /* Given extra right padding to accomodate counts, chevrons or buttons */
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 /* Give top border to first list items */
-.list li:first-child {
+.cities-list li:first-child {
   border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
 /* If a list of links, make sure the child <a> takes up full list item tap area (want to avoid selecting child buttons though) */
-.list li > a:not([class*="button"]) {
+.cities-list li > a:not([class*="button"]) {
   position: relative;
   display: block;
   padding: inherit;
@@ -38,7 +38,7 @@
 -------------------------------------------------- */
 
 /* Heading style and gradient */
-.list li > a {
+.cities-list li > a {
 	font-weight: bold;
 	font-size: 24px;
 	/* Gradient */
@@ -52,26 +52,27 @@
 }
 
 /* Background image for cities */
-.list li {
+.cities-list li {
 	/*background-image: url('http://placehold.it/320x105');*/
-	background-image: url('http://placekitten.com/320/110');
+	/*background-image: url('http://placekitten.com/320/110');*/
 	border-bottom: solid 1px #999;
+	background-size: 100%;
 }
 
 /* Test actual image for cities */
-.list li.boston {
+.cities-list li.boston {
 	background-image: url('bos-low.png');
 	background-size: 100%;
 	background-position: center;
 }
 
-.list li.nyc {
+.cities-list li.nyc {
 	background-image: url('nyc.png');
 	background-size: 100%;
 	background-position: center;
 }
 
-.list li.fiji {
+.cities-list li.fiji {
 	background-image: url('fiji.png');
 	background-size: 100%;
 	background-position: center;
