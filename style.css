@@ -38,31 +38,43 @@
 -------------------------------------------------- */
 
 /* Heading style and gradient */
-.list li a {
+.list li > a {
 	font-weight: bold;
 	font-size: 24px;
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+	/* Gradient */
+	/*background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+	/* Solid */
+	/*background: rgba(255,255,255,0.6);*/
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 65%,rgba(255,255,255,0.4) 100%); /* Chrome10+,Safari5.1+ */
 	color: red; /*TODO: Figure out how to change the color*/
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	border-bottom: solid 1px #999;
 }
 
 /* Background image for cities */
 .list li {
 	/*background-image: url('http://placehold.it/320x105');*/
 	background-image: url('http://placekitten.com/320/110');
+	border-bottom: solid 1px #999;
 }
 
 /* Test actual image for cities */
 .list li.boston {
 	background-image: url('bos-low.png');
+	background-size: 100%;
+	background-position: center;
 }
 
 .list li.nyc {
 	background-image: url('nyc.png');
+	background-size: 100%;
+	background-position: center;
 }
 
 .list li.fiji {
 	background-image: url('fiji.png');
+	background-size: 100%;
+	background-position: center;
 }
 
 /* Row of profile photos */
