@@ -16,7 +16,7 @@
 /* Pad each list item and add dividers */
 .list li {
   position: relative;
-  padding: 8px 60px 72px 10px; /* Given extra right padding to accomodate counts, chevrons or buttons */
+  padding: 7px 60px 72px 10px; /* Given extra right padding to accomodate counts, chevrons or buttons */
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
@@ -43,18 +43,26 @@
 	font-size: 24px;
 	background: -webkit-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
 	color: red; /*TODO: Figure out how to change the color*/
-	text-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.5); /* highlight */
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 /* Background image for cities */
 .list li {
-	background-image: url('http://placehold.it/320x105'); /*http://placekitten.com/320/105*/
+	/*background-image: url('http://placehold.it/320x105');*/
+	background-image: url('http://placekitten.com/320/110');
 }
 
-/* Test actual image for Boston */
+/* Test actual image for cities */
 .list li.boston {
-	background-image: url('bos.png');
+	background-image: url('bos-low.png');
+}
+
+.list li.nyc {
+	background-image: url('nyc.png');
+}
+
+.list li.fiji {
+	background-image: url('fiji.png');
 }
 
 /* Row of profile photos */
@@ -66,6 +74,6 @@
 
 .face-row img {
 	padding: 2px;
-	background-color: white;
+	background: -webkit-linear-gradient(top, rgba(255,253,249,1) 0%,rgba(255,251,239,1) 100%); /* Chrome10+,Safari5.1+ */
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
 }
