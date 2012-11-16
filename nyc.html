@@ -38,18 +38,32 @@
     <h1 class="title">New York City</h1>
   </header>
 	<div class="content">
-    <div class="content-padded">
-        <img src="http://placehold.it/320/100">
-        <h2>New York City</h2>
-        <a class="button-positive button-block">See Flights</a>
-    </div>
+    <div class="slider">
+      <ul>
+        <li>
+          <img src="slide-3.png" width="320px" height="200px">
+          <span class="slide-text">← Slide me</span>
+        </li>
+        <li>
+          <img src="slide-2.png" width="320px" height="200px">
+        </li>
+        <li>
+          <img src="slide-3.png" width="320px" height="200px">
+        </li>
+      </ul>
+    </div><!-- .slider -->
     <ul class="list inset">
-      <li>List item 1</li>
-      <li>List item 2</li>
-      <li class="list-divider">List Divider</li>
-      <li>List item 3</li>
-      <li>List item 4</li>
+      <li class="list-divider">Friends in New York City</li>
+      <li><a href="person.html" data-transition="slide-in">List item 1</a></li>
+      <li><a href="person.html" data-transition="slide-in">List item 2</a></li>
+      <li><a href="person.html" data-transition="slide-in">List item 3</a></li>
+      <li><a href="person.html" data-transition="slide-in">List item 4</a></li>
+      <li><a href="person.html" data-transition="slide-in">List item 3</a></li>
+      <li><a href="person.html" data-transition="slide-in">List item 4</a></li>
     </ul>
+    <div class="content-padded">
+        <a class="button-positive button-block">Flights to New York City</a>
+    </div>
 	</div><!-- .content -->
 </body>
 </html>
