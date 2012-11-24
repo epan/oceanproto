@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"li",
+				"li	Tag"
+			],
+			[
 				"margi",
 				"margin-bottom"
 			],
@@ -126,10 +130,6 @@
 			[
 				"padd",
 				"padding"
-			],
-			[
-				"li",
-				"link	Tag"
 			],
 			[
 				"mar",
@@ -295,7 +295,7 @@
 			"file": "friends.html",
 			"settings":
 			{
-				"buffer_size": 2143,
+				"buffer_size": 4149,
 				"line_ending": "Unix"
 			}
 		},
@@ -335,7 +335,7 @@
 			"file": "person.html",
 			"settings":
 			{
-				"buffer_size": 1926,
+				"buffer_size": 1927,
 				"line_ending": "Unix"
 			}
 		},
@@ -496,6 +496,8 @@
 	},
 	"file_history":
 	[
+		"/Users/slinlee/code/oceanproto/friends-original.html",
+		"/Users/slinlee/code/oceanproto/channel.html",
 		"/Users/grupert/GitHub/oceanproto/template.html",
 		"/Users/grupert/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/grupert/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
@@ -604,7 +606,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -619,8 +621,8 @@
 						"selection":
 						[
 							[
-								1230,
-								1230
+								519,
+								519
 							]
 						],
 						"settings":
@@ -722,7 +724,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 169.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -852,15 +854,15 @@
 					"file": "friends.html",
 					"settings":
 					{
-						"buffer_size": 2143,
+						"buffer_size": 4149,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15,
-								0
+								3090,
+								2713
 							]
 						],
 						"settings":
@@ -958,11 +960,11 @@
 							"sublimelinter_wrap_find": true,
 							"synced": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1150.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1442,7 +1444,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1452,15 +1454,15 @@
 					"file": "person.html",
 					"settings":
 					{
-						"buffer_size": 1926,
+						"buffer_size": 1927,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15,
-								15
+								1350,
+								1350
 							]
 						],
 						"settings":
@@ -2314,7 +2316,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.55550500455,
 			1.0
 		],
 		"rows":

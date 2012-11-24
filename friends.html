@@ -82,29 +82,35 @@
 		</ul>
 	</header>
 	<div class="content">
-		<!-- Login/Logout buttons -->
-	<div id="login">
-		<p><button onClick="loginUser();">Login</button></p>
-	</div>
-	<div id="logout">
-		<p><button  onClick="FB.logout();">Logout</button></p>
-	</div>
+		<div class="content-padded">
+			<!-- Login/Logout buttons -->
+			<div id="login">
+				<p><button onClick="loginUser();">Login</button></p>
+			</div>
+			<div id="logout">
+				<p><button  onClick="FB.logout();">Logout</button></p>
+			</div>
 
-	<script>
-		function loginUser() {    
-			FB.login(function(response) { }, {scope:'email'});     
-		}
-	</script>
+			<script>
+				function loginUser() {    
+					FB.login(function(response) { 
+						if (response.authResponse) {
+							getUserFriends();
+						}
+						}, {scope:'email'});     
+				}
+			</script>
+		</div>
 
 	<!-- CSS rules for which login/logout buttons to show -->
 	<style>
 		body.connected #login { display: none; }
-		body.connected #logout { di,splay: block; }
+		body.connected #logout { display: block; }
 		body.not_connected #login { display: block; }
 		body.not_connected #logout { display: none; }
 	</style>
 	<!-- Get friends info -->
-	<a href="#" onclick="getUserFriends();">Get 25 friends</a><br>
+	<!-- <a href="#" onclick="getUserFriends();">Get 25 friends</a><br> -->
  	<ul id="user-friends" class="list"></ul>
 	<script>
 		function getUserFriends() {
@@ -119,7 +125,7 @@
 					for (var i=0; i < friends.length && i < 25; i++) {
 						var friend = friends[i];
 
-						markup += '<li><a href="person.html"><img src="https://graph.facebook.com/' + friend.id + '/picture"> ' + friend.name + '<span class="chevron"></span></a></li>';
+						markup += '<li><a href="person.html" data-transition="slide-in"><img src="https://graph.facebook.com/' + friend.id + '/picture"> ' + friend.name + '<span class="chevron"></span></a></li>';
 					}
 
 					document.getElementById('user-friends').innerHTML = markup;
