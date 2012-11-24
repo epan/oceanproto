@@ -119,7 +119,7 @@
 					for (var i=0; i < friends.length && i < 25; i++) {
 						var friend = friends[i];
 
-						markup += '<li><a href="person.html"><img src="https://graph.facebook.com/' + friend.id + '/picture"> ' + friend.name + '</a></li>';
+						markup += '<li><a href="person.html"><img src="https://graph.facebook.com/' + friend.id + '/picture"> ' + friend.name + '<span class="chevron"></span></a></li>';
 					}
 
 					document.getElementById('user-friends').innerHTML = markup;
