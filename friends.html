@@ -32,40 +32,101 @@
     <script src="script.js"></script>
 </head>
 <body>
-		<header class="bar-title">
-		  <ul class="segmented-controller">
-		    <li>
-		      <a href="index.html">Map</a>
-		    </li>
-		    <li>
-		      <a href="cities.html">Cities</a>
-		    </li>
-		    <li class="active">
-		      <a href="friends.html">Friends</a>
-		    </li>
-		  </ul>
-		</header>
+	<!-- Initialize the SDK -->
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '221694187963262', // App ID
+				channelUrl : '//ericpan.net/ep-mk-one/channel.html', // Channel File
+				status     : true, // check login status
+				cookie     : true, // enable cookies to allow the server to access the session
+				xfbml      : true  // parse XFBML
+			});
+
+			FB.Event.subscribe('auth.statusChange', handleStatusChange);
+		};
+
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+
+	<!-- Set the body class based on authResponse -->
+	<script>
+  		function handleStatusChange(response) {
+	      document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+	      if (response.authResponse) {
+	        console.log(response);
+	        updateUserInfo(response);
+	      }
+	    }
+	</script>
+	<header class="bar-title">
+		<ul class="segmented-controller">
+			<li>
+				<a href="index.html">Map</a>
+			</li>
+			<li>
+				<a href="cities.html">Cities</a>
+			</li>
+			<li class="active">
+				<a href="friends.html">Friends</a>
+			</li>
+		</ul>
+	</header>
 	<div class="content">
-    <ul class="list">
-      <li>
-        <a href="mikeroth.html" data-transition="slide-in">
-          Mike Rothenberg
-          <span class="chevron"></span>
-        </a>
-      </li>
-      <li>
-        <a href="person.html" data-transition="slide-in">
-          Danny Ryan
-          <span class="chevron"></span>
-        </a>
-      </li>
-      <li>
-        <a href="person.html" data-transition="slide-in">
-          List item 3
-          <span class="chevron"></span>
-        </a>
-      </li>
-    </ul>
+		<!-- Login/Logout buttons -->
+	<div id="login">
+		<p><button onClick="loginUser();">Login</button></p>
+	</div>
+	<div id="logout">
+		<p><button  onClick="FB.logout();">Logout</button></p>
+	</div>
+
+	<script>
+		function loginUser() {    
+			FB.login(function(response) { }, {scope:'email'});     
+		}
+	</script>
+
+	<!-- CSS rules for which login/logout buttons to show -->
+	<style>
+		body.connected #login { display: none; }
+		body.connected #logout { di,splay: block; }
+		body.not_connected #login { display: block; }
+		body.not_connected #logout { display: none; }
+	</style>
+	<!-- Get friends info -->
+	<a href="#" onclick="getUserFriends();">Get 25 friends</a><br>
+ 	<ul id="user-friends" class="list"></ul>
+	<script>
+		function getUserFriends() {
+			FB.api('/me/friends&fields=name,picture', function(response) {
+				console.log('Got friends: ', response);
+
+				if (!response.error) {
+					var markup = '';
+
+					var friends = response.data;
+
+					for (var i=0; i < friends.length && i < 25; i++) {
+						var friend = friends[i];
+
+						markup += '<li><a href="person.html"><img src="https://graph.facebook.com/' + friend.id + '/picture"> ' + friend.name + '</a></li>';
+					}
+
+					document.getElementById('user-friends').innerHTML = markup;
+				}
+			});
+		}
+	</script>
 	</div><!-- .content -->
 </body>
 </html>
