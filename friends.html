@@ -93,11 +93,7 @@
 
 			<script>
 				function loginUser() {    
-					FB.login(function(response) { 
-						if (response.authResponse) {
-							getUserFriends();
-						}
-						}, {scope:'email'});     
+					FB.login(function(response) { }, {scope:'email'});     
 				}
 			</script>
 		</div>
@@ -113,6 +109,11 @@
 	<!-- <a href="#" onclick="getUserFriends();">Get 25 friends</a><br> -->
  	<ul id="user-friends" class="list"></ul>
 	<script>
+    // if logged in, run getUserFriends
+    if (response.authResponse) {
+      getUserFriends();
+    }
+    // gets friend photo and name
 		function getUserFriends() {
 			FB.api('/me/friends&fields=name,picture', function(response) {
 				console.log('Got friends: ', response);
