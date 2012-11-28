@@ -81,23 +81,6 @@
 			</li>
 		</ul>
 	</header>
-	<div class="content">
-		<div class="content-padded">
-			<!-- Login/Logout buttons -->
-			<div id="login">
-				<p><button onClick="loginUser();">Login</button></p>
-			</div>
-			<div id="logout">
-				<p><button  onClick="FB.logout();">Logout</button></p>
-			</div>
-
-			<script>
-				function loginUser() {    
-					FB.login(function(response) { }, {scope:'email'});     
-				}
-			</script>
-		</div>
-
 	<!-- CSS rules for which login/logout buttons to show -->
 	<style>
 		body.connected #login { display: none; }
@@ -105,9 +88,26 @@
 		body.not_connected #login { display: block; }
 		body.not_connected #logout { display: none; }
 	</style>
-	<!-- Get friends info -->
-	<a href="#" onclick="getUserFriends();">Get 25 friends</a><br>
- 	<ul id="user-friends" class="list"></ul>
+  <div class="content">
+    <div class="content-padded">
+      <!-- Login/Logout buttons -->
+      <div id="login">
+        <p><button onClick="loginUser();">Login</button></p>
+      </div>
+      <div id="logout">
+        <p><button  onClick="FB.logout();">Logout</button></p>
+      </div>
+
+      <script>
+        function loginUser() {    
+          FB.login(function(response) { }, {scope:'email'});     
+        }
+      </script>
+    	<!-- Get friends info -->
+    	<a href="#" onclick="getUserFriends();">Get 25 friends</a><br>
+     	<ul id="user-friends" class="list"></ul>
+    </div><!-- .content-padded -->
+
 	<script>
     // if logged in, run getUserFriends
     if (response.authResponse) {
