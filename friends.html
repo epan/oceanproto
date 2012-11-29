@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
     <title>OceanRails Proto</title>
 
     <!-- Sets initial viewport load and disables zooming  -->
@@ -32,64 +32,45 @@
     <script src="script.js"></script>
 </head>
 <body>
-	<!-- Initialize the SDK -->
-	<div id="fb-root"></div>
-	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId      : '392288767512766', // App ID
-				channelUrl : '//ericpan.net/ep-mk-two/channel.html', // Channel File
-				status     : true, // check login status
-				cookie     : true, // enable cookies to allow the server to access the session
-				xfbml      : true  // parse XFBML
-			});
+  <!-- Initialize the SDK -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '392288767512766', // App ID
+        channelUrl : '//ericpan.net/ep-mk-two/channel.html', // Channel File
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
 
-			FB.Event.subscribe('auth.statusChange', handleStatusChange);
-		};
+      FB.Event.subscribe('auth.statusChange', handleStatusChange);
+    };
 
-		// Load the SDK Asynchronously
-		(function(d){
-			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-			if (d.getElementById(id)) {return;}
-			js = d.createElement('script'); js.id = id; js.async = true;
-			js.src = "//connect.facebook.net/en_US/all.js";
-			ref.parentNode.insertBefore(js, ref);
-		}(document));
-	</script>
-
-	<!-- Set the body class based on authResponse -->
-	<script>
-  		function handleStatusChange(response) {
-	      document.body.className = response.authResponse ? 'connected' : 'not_connected';
-
-	      if (response.authResponse) {
-	        console.log(response);
-	        updateUserInfo(response);
-	      }
-	    }
-	</script>
-	<header class="bar-title">
-		<ul class="segmented-controller">
-			<li>
-				<a href="index.html">Map</a>
-			</li>
-			<li>
-				<a href="cities.html">Cities</a>
-			</li>
-			<li class="active">
-				<a href="friends.html">Friends</a>
-			</li>
-		</ul>
-	</header>
-	<!-- CSS rules for which login/logout buttons to show -->
-	<style>
-		body.connected #login { display: none; }
-		body.connected #logout { display: block; }
-		body.not_connected #login { display: block; }
-		body.not_connected #logout { display: none; }
-	</style>
-  <div class="content">
-    <div class="content-padded">
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      ref.parentNode.insertBefore(js, ref);
+    }(document));
+  </script>
+  <header class="bar-title">
+    <ul class="segmented-controller">
+      <li>
+        <a href="index.html">Map</a>
+      </li>
+      <li>
+        <a href="cities.html">Cities</a>
+      </li>
+      <li class="active">
+        <a href="friends.html">Friends</a>
+      </li>
+    </ul>
+  </header>
+    <div class="content">
+      <div class="content-padded">
       <!-- Login/Logout buttons -->
       <div id="login">
         <p><button onClick="loginUser();">Login</button></p>
@@ -103,37 +84,37 @@
           FB.login(function(response) { }, {scope:'email'});     
         }
       </script>
-    	<!-- Get friends info -->
-    	<a href="#" onclick="getUserFriends();">Get 25 friends</a><br>
-     	<ul id="user-friends" class="list"></ul>
-    </div><!-- .content-padded -->
+      <!-- Get friends info -->
+      <a href="#" onclick="getUserFriends();">Get 25 friends</a><br>
+      <ul id="user-friends" class="list"></ul>
+      </div><!-- .content-padded -->
 
-	<script>
-    // if logged in, run getUserFriends
-    if (response.authResponse) {
-      getUserFriends();
-    }
-    // gets friend photo and name
-		function getUserFriends() {
-			FB.api('/me/friends&fields=name,picture', function(response) {
-				console.log('Got friends: ', response);
+    <script>
+      // if logged in, run getUserFriends
+      if (response.authResponse) {
+        getUserFriends();
+      }
+      // gets friend photo and name
+      function getUserFriends() {
+        FB.api('/me/friends&fields=name,picture', function(response) {
+          console.log('Got friends: ', response);
 
-				if (!response.error) {
-					var markup = '';
+          if (!response.error) {
+            var markup = '';
 
-					var friends = response.data;
+            var friends = response.data;
 
-					for (var i=0; i < friends.length && i < 25; i++) {
-						var friend = friends[i];
+            for (var i=0; i < friends.length && i < 25; i++) {
+              var friend = friends[i];
 
-						markup += '<li><a href="person.html" data-transition="slide-in"><img src="https://graph.facebook.com/' + friend.id + '/picture"> ' + friend.name + '<span class="chevron"></span></a></li>';
-					}
+              markup += '<li><a href="person.html" data-transition="slide-in"><img src="https://graph.facebook.com/' + friend.id + '/picture"> ' + friend.name + '<span class="chevron"></span></a></li>';
+            }
 
-					document.getElementById('user-friends').innerHTML = markup;
-				}
-			});
-		}
-	</script>
-	</div><!-- .content -->
+            document.getElementById('user-friends').innerHTML = markup;
+          }
+        });
+      }
+    </script>
+  </div><!-- .content -->
 </body>
 </html>

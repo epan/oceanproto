@@ -97,3 +97,10 @@
 	margin-bottom: 10px;
 	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
 }
+
+/* Facebook Login vs. Logout button hiding
+-------------------------------------------------- */
+body.connected #login { display: none; }
+body.connected #logout { display: block; }
+body.not_connected #login { display: block; }
+body.not_connected #logout { display: none; }
